@@ -1,73 +1,107 @@
-# React + TypeScript + Vite
+# 📌 React CRUD + Map Polygon Editor
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Interaktiv **Users CRUD (ShadCN UI bilan)** va **Map Polygon Drawing
+(Leaflet + Turf.js)** funksionalligi bo'lgan kichik demo loyiha.
 
-Currently, two official plugins are available:
+## 🚀 Ishga tushirish
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### 1️⃣ **Repository'ni clone qilish**
 
-## React Compiler
+- git branch:  main
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+``` bash
+git clone  https://github.com/JovliyevOlim/crud-maps.git
+cd crud-maps
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 2️⃣ **Node version**
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+> **Node.js: `v20.x`** ishlatilgan.\
+> Aniqlash uchun:
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+``` bash
+node -v
 ```
+
+### 3️⃣ **Dependencies o'rnatish**
+
+``` bash
+npm install
+```
+
+### 4️⃣ **Development server ishga tushirish**
+
+``` bash
+npm run dev
+```
+
+# 🧱 **Loyiha arxitekturasi**
+
+    src/
+     ├── components/
+     │    ├── ui/
+     │    ├── users/
+     │    └── maps/
+     ├── store/
+     │    ├── users.store.ts
+     │    └── modal.store.ts
+     ├── pages/
+     │    ├── Maps.tsx
+     │    └── Users.tsx
+     ├── hooks/
+     ├── lib/
+     └── App.tsx
+
+## 📦 Technologies / Used Libraries
+
+### Core
+
+- **React 19**
+- **React Router DOM** – client-side routing
+- **TypeScript**
+- **TailwindCSS** – UI styling
+
+### CRUD
+
+- **Formik** + **Yup** – form handling & validation
+
+### State Management
+
+- **Zustand** – lightweight global store
+
+### Map & GIS
+
+- **Leaflet** – interactive map engine
+- **React-Leaflet** – React bindings for Leaflet
+- **@turf/turf** – polygon area calculation & GIS utilities
+
+### UI & UX
+
+- **Shadcn UI**
+
+### Optional (If used)
+
+- **Dexie** – IndexedDB local storage
+
+# 🔥 **Funksionallar**
+
+### USERS CRUD
+
+- Create / Edit / Delete\
+- Toast notifications\
+- Formik + Yup\
+- Search + Pagination
+
+### MAP POLYGON
+
+- Create / Edit / Delete\
+- Vertex bosib polygon chizish\
+- Turf.js → polygon area hisoblash\
+- Polygon saqlash
+
+# 📥 Quick Start
+
+1. `npm install`
+2. `npm run dev`
+3. `/users` & `/maps`
+

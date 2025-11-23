@@ -1,6 +1,6 @@
 import {create} from "zustand";
-import {db} from "@/db/indexedDB";
-import type {User} from "@/db/indexedDB";
+import {db} from "@/db/userDB";
+import type {User} from "@/db/userDB";
 import {UserFormValues} from "@/types/user.types";
 
 interface UsersState {
@@ -30,6 +30,7 @@ export const useUsersStore = create<UsersState>((set, get) => ({
     currentPage: 1,
     pageSize: 5,
 
+    // userlarni get qilib olish db dan
     loadUsers: async () => {
         set({loading: true});
         try {
@@ -40,12 +41,14 @@ export const useUsersStore = create<UsersState>((set, get) => ({
         }
     },
 
+    // db da yandi user qoshish
     addUser: async (data) => {
         set({loading: true});
         await db.users.add(data);
         await get().loadUsers();
     },
 
+    // userni update qilish
     updateUser: async (id, data) => {
         set({loading: true});
         await db.users.update(id, data);
@@ -60,6 +63,7 @@ export const useUsersStore = create<UsersState>((set, get) => ({
 
     setSearch: (val) => set({search: val, currentPage: 1}),
     setPage: (page) => set({currentPage: page}),
+
 
     filteredUsers: () =>
         get().users.filter(

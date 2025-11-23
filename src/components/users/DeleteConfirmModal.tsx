@@ -3,9 +3,11 @@ import {Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription} fro
 import {Button} from "@/components/ui/button";
 import {useUsersStore} from "@/store/users.store";
 import {useModalStore} from "@/store/modal.store";
+import {useToast} from "@/hooks/use-toast";
 
 export function DeleteConfirmModal() {
     const {deleteModalOpen, closeDeleteModal, editingUserId} = useModalStore();
+    const {toast} = useToast()
     const {deleteUser} = useUsersStore();
     const [reason, setReason] = useState("");
     const [loading, setLoading] = useState(false);
@@ -18,6 +20,7 @@ export function DeleteConfirmModal() {
 
         await new Promise((resolve) => setTimeout(resolve, 1500));
         await deleteUser(editingUserId);
+        toast({description: "User deleted successfully!", variant: "success"})
         closeDeleteModal();
         setLoading(false);
         setReason("");
