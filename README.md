@@ -79,9 +79,9 @@ npm run dev
 
 - **Shadcn UI**
 
-### Optional (If used)
+### DB
 
-- **Dexie** – IndexedDB local storage
+- **Dexie** – IndexedDB
 
 # 🔥 **Funksionallar**
 
