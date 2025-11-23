@@ -8,7 +8,7 @@ interface ModalState {
     openFormModal: (id?: number) => void;
     closeFormModal: () => void;
 
-    openDeleteModal: (id: number) => void;
+    openDeleteModal: (id?: number) => void;
     closeDeleteModal: () => void;
 }
 
